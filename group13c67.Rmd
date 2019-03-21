@@ -1,0 +1,82 @@
+---
+title: "STAC67 Case Study: A model for predicting housing values in Boston"
+date: "March 20 2019"
+author: 
+- Revon Villava-Rayen (1002987501)
+- Sizhe Gao ()
+- Alexander Nguyen ()
+- Gopi Santhiran ()
+- Yu Heng Wu (1003475330)
+- Group 13 
+output: 
+  word_document
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require("mosaic")
+```
+
+#Abstract
+The housing market of the city of Boston is a volatile market, as with any world reknowned city. There are many attempts to create a formula to predict housing prices; using predictor variables such as per capita crime rate by town, or average number of rooms per dwelling. Using R statistical analysis, this study aims to examine and determine which model best represents the correlation between housing prices and these influential factors.
+
+
+
+
+#Background and Significance
+Boston is the captial and largest city in Massachusetts. Founded in 1630 Boston is one of the oldest cities in America and the city played an important role in American History. As Boston is a world reknowned city, the housing market in Boston is expensive, with finding and owning property is an important financial goal for many.
+
+The model introduced in this report is used to predict the housing value in the Boston with the given predictor values 
+
+The goal of this study is to obtain an appropriate model 
+
+
+#Explanatory Data Analysis
+This Data set contains 506 observations on 13 predictors variables, which are per capita crime rate by town, proportion of residential land zoned for lots over 25,000 sq. ft., proportion of non-retail business acres per town
+Charles River dummy variable, nitric oxide concentration (parts per 10 million), average number of rooms per dwelling
+proportion of owner occupied units built prior to 1940, weighted distances to five Boston employment centres
+index of accessibility to radial highways, full-value property-tax rate per 10,000, pupil-teacher ratio by town, 1000(B − 0.63)^2 where B is the proportion of African Americans by town, a numeric vector of percentage values of lower status population.
+
+###per capita crime rate by town
+Placeholder
+
+###proportion of residential land zoned for lots over 25,000 sq. ft.
+Placeholder
+
+###proportion of non-retail business acres per town
+Placeholder
+
+###Charles River dummy variable
+Placeholder
+
+###nitric oxide concentration (parts per 10 million)
+Placeholder
+
+###average number of rooms per dwelling
+Placeholder
+
+###proportion of owner occupied units built prior to 1940
+Placeholder
+
+###weighted distances to five Boston employment centres
+Placeholder
+
+###index of accessibility to radial highways
+Placeholder
+
+###full-value property-tax rate per 10,000
+Placeholder
+
+###pupil-teacher ratio by town
+Placeholder
+
+###1000(B − 0.63)^2 where B is the proportion of African Americans by town
+Placeholder
+
+###a numeric vector of percentage values of lower status population
+Placeholder
+
+
+#Model 
+
