@@ -15,7 +15,18 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+#install.packages("olsrr", "AICmodavg")
 require("mosaic")
+require("tidyverse")
+require("olsrr")
+require("car")
+require("AICmodavg")
+```
+
+```{r, echo=FALSE}
+housing = read.csv(file="housing.proper.csv",header=F)
+colnames(housing) <- c('CRIME', 'ZL', 'NR_PROP', 'CHR_V', 'NOX', 'ROOM', 'AGE', 'DIS', 'HWY', 'TAX', 'PT_RATIO', 'B', 'L_PER', 'MEDV')
 ```
 
 #Abstract
@@ -23,9 +34,8 @@ The housing market of the city of Boston is a volatile market, as with any world
 
 
 
-
 #Background and Significance
-Boston is the captial and largest city in Massachusetts. Founded in 1630 Boston is one of the oldest cities in America and the city played an important role in American History. As Boston is a world reknowned city, the housing market in Boston is expensive, with finding and owning property is an important financial goal for many.
+Boston is the captial and largest city in Massachusetts. Founded in 1630 Boston is one of the oldest cities in America and the city played an important role in American History. As Boston is a world reknowned city, the housing market in Boston is expensive, with finding and owning property is an important financial goal for many that live within or near Boston. As Housing is an expensive financial venture it is optimal to buy houses at a low price point to maximize 
 
 The model introduced in this report is used to predict the housing value in the Boston with the given predictor values 
 
@@ -38,45 +48,56 @@ Charles River dummy variable, nitric oxide concentration (parts per 10 million),
 proportion of owner occupied units built prior to 1940, weighted distances to five Boston employment centres
 index of accessibility to radial highways, full-value property-tax rate per 10,000, pupil-teacher ratio by town, 1000(B − 0.63)^2 where B is the proportion of African Americans by town, a numeric vector of percentage values of lower status population.
 
-###per capita crime rate by town
+Because of the rather long names, we will assign shorter names in capitals listed below: 
+
+###CRIME - per capita crime rate by town
+A crime rate describes the number of crimes per 100,000 of the population. The mean and mode of the crime rate is _____ and ______ respectively 
+
+###ZL - proportion of residential land zoned for lots over 25,000 sq. ft.
 Placeholder
 
-###proportion of residential land zoned for lots over 25,000 sq. ft.
+###NR_PROP - proportion of non-retail business acres per town
 Placeholder
 
-###proportion of non-retail business acres per town
+###CHR_V - Charles River dummy variable
 Placeholder
 
-###Charles River dummy variable
+###NOX - nitric oxide concentration (parts per 10 million)
 Placeholder
 
-###nitric oxide concentration (parts per 10 million)
+###ROOM - average number of rooms per dwelling
 Placeholder
 
-###average number of rooms per dwelling
+###AGE - proportion of owner occupied units built prior to 1940
 Placeholder
 
-###proportion of owner occupied units built prior to 1940
+###DIS - weighted distances to five Boston employment centres
 Placeholder
 
-###weighted distances to five Boston employment centres
+###HWY - index of accessibility to radial highways
 Placeholder
 
-###index of accessibility to radial highways
+###TAX - full-value property-tax rate per 10,000
 Placeholder
 
-###full-value property-tax rate per 10,000
+###PT_RATIO - pupil-teacher ratio by town
 Placeholder
 
-###pupil-teacher ratio by town
+###B - 1000(B − 0.63)^2 where B is the proportion of African Americans by town
 Placeholder
 
-###1000(B − 0.63)^2 where B is the proportion of African Americans by town
+###L_PER - a numeric vector of percentage values of lower status population
 Placeholder
 
-###a numeric vector of percentage values of lower status population
-Placeholder
+```{r, echo=FALSE}
+lm.r=lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=housing)
+mean(lm.r)
+```
+
 
 
 #Model 
+
+
+
 
