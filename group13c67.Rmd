@@ -25,7 +25,7 @@ require("AICmodavg")
 ```
 
 ```{r, echo=FALSE}
-housing = read.csv(file="housing.proper.csv",header=F)
+housing = read.csv(file="housing.proper.csv",header=T,",")
 colnames(housing) <- c('CRIME', 'ZL', 'NR_PROP', 'CHR_V', 'NOX', 'ROOM', 'AGE', 'DIS', 'HWY', 'TAX', 'PT_RATIO', 'B', 'L_PER', 'MEDV')
 ```
 
@@ -50,44 +50,66 @@ index of accessibility to radial highways, full-value property-tax rate per 10,0
 
 Because of the rather long names, we will assign shorter names in capitals listed below: 
 
+```{r, echo=FALSE}
+coloumnMeans <- colMeans(housing,na.rm = TRUE)
+coloumnMeans
+
+Mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+Mode(housing$CRIME)
+Mode(housing$ZL)
+Mode(housing$NR_PROP)
+Mode(housing$CHR_V)
+Mode(housing$NOX)
+Mode(housing$ROOM)
+Mode(housing$AGE)
+Mode(housing$DIS)
+Mode(housing$HWY)
+Mode(housing$TAX)
+Mode(housing$PT_RATIO)
+Mode(housing$B)
+Mode(housing$L_PER)
+``` 
 ###CRIME - per capita crime rate by town
-A crime rate describes the number of crimes per 100,000 of the population. The mean and mode of the crime rate is _____ and ______ respectively 
+A crime rate describes the number of crimes per 100,000 of the population. The mean and mode of the crime rate is 3.613 and 0.01501 respectively 
 
 ###ZL - proportion of residential land zoned for lots over 25,000 sq. ft.
-Placeholder
+The mean and mode of the residential land zoned for lots over 25,000 sq. ft. is 11.363 and 0 and respectively 
 
 ###NR_PROP - proportion of non-retail business acres per town
-Placeholder
+The mean and mode of the non-retail buisness acres per town is 11.136 and 18.1 respectively 
 
 ###CHR_V - Charles River dummy variable
-Placeholder
+The mean and mode of the Charles River dummy variable is 0.069 and 0 respectively 
 
 ###NOX - nitric oxide concentration (parts per 10 million)
-Placeholder
+The mean and mode of nitric oxide concentration is 0.554 and 0.538 respectively 
 
 ###ROOM - average number of rooms per dwelling
-Placeholder
+The mean and mode of number of rooms per dwelling is 6.284 and 5.713 respectively 
 
 ###AGE - proportion of owner occupied units built prior to 1940
-Placeholder
+The mean and mode of the proporition of owner occuiped units built prior to 1940 is 68.574 and 100 respectively
 
 ###DIS - weighted distances to five Boston employment centres
-Placeholder
+The mean and mode weighted distances to five Boston employment centres is 3.795 and 3.4952 respectively 
 
 ###HWY - index of accessibility to radial highways
-Placeholder
+The mean and mode of index of accessibility to radial highways is 9.549 and 24 respectively 
 
 ###TAX - full-value property-tax rate per 10,000
-Placeholder
+The mean and mode of full-value propert-tax per rate 10,000 is 408.237 and 666 respectively 
 
 ###PT_RATIO - pupil-teacher ratio by town
-Placeholder
+The mean and mode of pupil-teacher ratio by town is 18.455 and 20.2 respectively 
 
 ###B - 1000(B − 0.63)^2 where B is the proportion of African Americans by town
-Placeholder
+The mean and mode of the proportion of African Americans by town is 356.674 and 396.9 respectively
 
 ###L_PER - a numeric vector of percentage values of lower status population
-Placeholder
+The mean and mode the proportion of the numberic vector of percentage values of lower status population is 12.653 and 8.05 respectively
 
 ```{r, echo=FALSE}
 lm.r=lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=housing)
