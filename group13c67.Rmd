@@ -16,12 +16,13 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 rm(list = ls())
-#install.packages("olsrr", "AICmodavg")
+#install.packages("olsrr", "AICmodavg","MASS")
 require("mosaic")
 require("tidyverse")
 require("olsrr")
 require("car")
 require("AICmodavg")
+require("MASS")
 ```
 
 ```{r, echo=FALSE}
@@ -50,7 +51,7 @@ index of accessibility to radial highways, full-value property-tax rate per 10,0
 
 Because of the rather long names, we will assign shorter names in capitals listed below: 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include = FALSE}
 coloumnMeans <- colMeans(housing,na.rm = TRUE)
 coloumnMeans
 
@@ -76,13 +77,13 @@ Mode(housing$L_PER)
 A crime rate describes the number of crimes per 100,000 of the population. The mean and mode of the crime rate is 3.613 and 0.01501 respectively 
 
 ###ZL - proportion of residential land zoned for lots over 25,000 sq. ft.
-The mean and mode of the residential land zoned for lots over 25,000 sq. ft. is 11.363 and 0 and respectively 
+The land set aside for residential buildings that is over 25,000 sq ft.The mean and mode of the residential land zoned for lots over 25,000 sq. ft. is 11.363 and 0 and respectively 
 
 ###NR_PROP - proportion of non-retail business acres per town
 The mean and mode of the non-retail buisness acres per town is 11.136 and 18.1 respectively 
 
 ###CHR_V - Charles River dummy variable
-The mean and mode of the Charles River dummy variable is 0.069 and 0 respectively 
+The Charles River is a 129 km long river in eastern Massachueetts.The mean and mode of the Charles River dummy variable is 0.069 and 0 respectively 
 
 ###NOX - nitric oxide concentration (parts per 10 million)
 The mean and mode of nitric oxide concentration is 0.554 and 0.538 respectively 
@@ -111,15 +112,24 @@ The mean and mode of the proportion of African Americans by town is 356.674 and 
 ###L_PER - a numeric vector of percentage values of lower status population
 The mean and mode the proportion of the numberic vector of percentage values of lower status population is 12.653 and 8.05 respectively
 
-```{r, echo=FALSE}
-lm.r=lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=housing)
-lm.r
-```
 
 
 
 #Model 
+```{r, echo=FALSE}
+#Take the first 253 observations for our model  
+mod_housing <- housing[1:253,c(1:14)]
+#fit the model with all observations 
+fit1 <- lm(MEDV ~ CRIME + ZL + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+summary(fit1) 
 
+fit_select = lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+step = stepAIC(fit_select, direction = "both")
+step$anova
+
+
+
+```
 
 
 
