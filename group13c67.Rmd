@@ -113,7 +113,7 @@ The mean and mode the proportion of the numberic vector of percentage values of 
 
 ```{r, echo=FALSE}
 lm.r=lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=housing)
-mean(lm.r)
+lm.r
 ```
 
 
