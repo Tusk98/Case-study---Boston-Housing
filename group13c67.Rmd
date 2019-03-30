@@ -119,7 +119,7 @@ The mean and mode the proportion of the numberic vector of percentage values of 
 #Take the first 253 observations for our model  
 mod_housing <- housing[1:253,c(1:14)]
 #fit the model with all observations 
-fit1 <- lm(MEDV ~ CRIME + ZL + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+fit1 <- lm(log(MEDV) ~ CRIME + ZL + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 summary(fit1) 
 
 fit_select = lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
@@ -127,6 +127,10 @@ step = stepAIC(fit_select, direction = "both")
 step$anova
 
 
+plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
+abline(0,0)
+  
+qqPlot(fit1)
 
 ```
 
