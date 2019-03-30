@@ -42,7 +42,7 @@ As Boston currently faces a "growing housing challenge ... likely because younge
 
 We propose this model with the given predictor variables to accurately predict housing values within Boston. By being able to purchase a house at an optimal time, it minimizes the financial burden of the purchase and also allows you to maximize any capital gains that may result from the changing value of the purchased house. Through this process, it is possible to maximize the value of your purchase and minimize the cost of buying a house which leads to more people being able to afford housing in the city of Boston. 
 
-#Explanatory Data Analysis
+#Exploratory Data Analysis
 This Data set contains 506 observations on 13 predictors variables, which are per capita crime rate by town, proportion of residential land zoned for lots over 25,000 sq. ft., proportion of non-retail business acres per town
 Charles River dummy variable, nitric oxide concentration (parts per 10 million), average number of rooms per dwelling
 proportion of owner occupied units built prior to 1940, weighted distances to five Boston employment centres
