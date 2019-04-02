@@ -115,22 +115,66 @@ The mean and mode the proportion of the numberic vector of percentage values of 
 
 
 #Model 
+
+#Co-Lineartiy 
 ```{r, echo=FALSE}
-#Take the first 253 observations for our model  
-mod_housing <- housing[1:253,c(1:14)]
-#fit the model with all observations 
-fit1 <- lm(MEDV ~ CRIME + ZL + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+res = cor(housing)
+round(res,3)
+```
+
+
+The R code shown below displays the step forward and backwards process as well as the final model we will be using. 
+```{r, echo=FALSE}
+#Take the first 354 observations for our model  
+mod_housing <- housing[1:354,c(1:14)]
+#fit the model with the best observations 
+fit1 <- lm(MEDV ~ CRIME + CHR_V + NOX + ROOM + AGE + DIS + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 summary(fit1) 
 
+#using the StepAIC forward and backwards to find the best model
 fit_select = lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 step = stepAIC(fit_select, direction = "both")
 step$anova
 
-
-plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
-abline(0,0)
+#ploting out the table 
+#plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
+#abline(0,0)
   
 qqPlot(fit1)
+
+#model validation
+#validate_housing <-housing[356:506,c(1:14)]
+#Y_pred <- predict(fit1,validate_housing)
+#Y_obs <- housing
+#n_star <- nrow(housing)
+#MSPE <- sum((Y_obs-Y_pred)^2/n_star)
+#MS_res <-(summary(fit1)$sigma^2)
+#MS_res
+#MSPE
+
+#outliers 
+outlierTest(fit_select)
+
+#Outliers for Y
+#s <- summary(fit_select)
+#n <- nrow(surgic_mod)
+
+#round(rbind(select_criteria(lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, #data=mod_housing), n, s))
+
+
+#t <- rstudent(fit_select)
+#alpha <- 0.05
+#n <- nrow(MEDV)
+#p_prime = length(coef(fit_select)) 
+#t_crit <- qt(1-alpha/(2*n),n-p_prime-1)
+#round(t,2)
+#t_crit
+#which(abs(t) > t_crit)
+
+#Leverage Points
+
+
+#Influential Observations
 
 ```
 
