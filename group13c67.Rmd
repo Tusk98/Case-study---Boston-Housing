@@ -73,43 +73,43 @@ Mode(housing$B)
 Mode(housing$L_PER)
 ``` 
 ###CRIME - per capita crime rate by town
-A crime rate describes the number of crimes per 100,000 of the population. The mean and mode of the crime rate is 3.613 and 0.01501 respectively 
+The crime rate, measured by number of crimes per 100,000 of the population of the suburb observed. The mean and mode of this crime rate is 3.613 and 0.01501 respectively 
 
 ###ZL - proportion of residential land zoned for lots over 25,000 sq. ft.
-The land set aside for residential buildings that is over 25,000 sq ft.The mean and mode of the residential land zoned for lots over 25,000 sq. ft. is 11.363 and 0 and respectively 
+This is the measurement of land set aside for residential buildings that is over 25,000 sq ft. The mean and mode of this is 11.363 and 0 and respectively. 
 
 ###NR_PROP - proportion of non-retail business acres per town
-The mean and mode of the non-retail buisness acres per town is 11.136 and 18.1 respectively 
+This is the measurement of the amount of non-retail land in the town. The mean and mode is 11.136 and 18.1 respectively.
 
 ###CHR_V - Charles River dummy variable
-The Charles River is a 129 km long river in eastern Massachueetts.The mean and mode of the Charles River dummy variable is 0.069 and 0 respectively 
+The Charles River is a 129 km long river in eastern Massachueetts. This is a binary variable and 6.9% of houses live near this river.
 
 ###NOX - nitric oxide concentration (parts per 10 million)
-The mean and mode of nitric oxide concentration is 0.554 and 0.538 respectively 
+Refers to the concentration in parts per 10 million of nitric oxide. Short-term exposure to nitric oxide can inflict irritation to the respiratory system, and long term exposure can cause asthma and other respiratory infections (National Library of Medicine, 2017), suggesting that a large concentration of nitric oxide can adversely affect housing value. The mean and mode of nitric oxide concentration are 0.554 and 0.538 respectively.
 
 ###ROOM - average number of rooms per dwelling
-The mean and mode of number of rooms per dwelling is 6.284 and 5.713 respectively 
+This predictor measures the average room per dwelling in the observed suburb. The mean and mode of the number of rooms is 6.284 and 5.713 respectively.
 
 ###AGE - proportion of owner occupied units built prior to 1940
-The mean and mode of the proporition of owner occuiped units built prior to 1940 is 68.574 and 100 respectively
+The mean and mode of the proportion of owner occupied units built prior to 1940 is 68.574 and 100 respectively.
 
 ###DIS - weighted distances to five Boston employment centres
-The mean and mode weighted distances to five Boston employment centres is 3.795 and 3.4952 respectively 
+The mean and mode weighted distances to five Boston employment centres is 3.795 and 3.4952 respectively.
 
 ###HWY - index of accessibility to radial highways
-The mean and mode of index of accessibility to radial highways is 9.549 and 24 respectively 
+Radial highways are high-capacity urban roads leading to or from an urban center. The mean and mode of its index of accessibility is 9.549 and 24.
 
 ###TAX - full-value property-tax rate per 10,000
-The mean and mode of full-value propert-tax per rate 10,000 is 408.237 and 666 respectively 
+The full-value property-tax rate, measured per 10,000, meaning the amount of tax paid on a cap of $10000. The mean and mode of this tax rate is 408.237 and 666 respectively.
 
 ###PT_RATIO - pupil-teacher ratio by town
-The mean and mode of pupil-teacher ratio by town is 18.455 and 20.2 respectively 
+This ratio is the total number of pupils enrolled at a level of education divided by the number of teachers at that same level. "It is generally assumed that a low pupil-teacher ratio signifies smaller classes, ... teacher to pay more attention to individual student"(UNESCO, 2018) and vice versa for a high pupil-teacher ratio. The mean and mode is 18.455 and 20.2 respectively.
 
-###B - 1000(B − 0.63)^2 where B is the proportion of African Americans by town
-The mean and mode of the proportion of African Americans by town is 356.674 and 396.9 respectively
+###B - 1000(B - 0.63)^2 where B is the proportion of African Americans by town
+1000(B - 0.63)^2 is the scaling of the proportion of African Americans by town to match the scale of the other measurements. B represents the proportion of African American living in the town. The mean and mode of the proportion of African Americans by town is 356.674 and 396.9 respectively.
 
 ###L_PER - a numeric vector of percentage values of lower status population
-The mean and mode the proportion of the numberic vector of percentage values of lower status population is 12.653 and 8.05 respectively
+This predictor is the percentage of lower status population in each observation. The mean and mode is 12.653 and 8.05.
 
 
 
