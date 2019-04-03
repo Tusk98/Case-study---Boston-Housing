@@ -5,7 +5,7 @@ author:
 - Revon Villava-Rayen (1002987501)
 - Sizhe Gao ()
 - Alexander Nguyen ()
-- Gopi Santhiran ()
+- Gopi Santhiran (1001371534)
 - Yu Heng Wu (1003475330)
 - Group 13 
 output: 
@@ -131,16 +131,39 @@ mod_housing <- housing[1:354,c(1:14)]
 fit1 <- lm(MEDV ~ CRIME + CHR_V + NOX + ROOM + AGE + DIS + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 summary(fit1) 
 
-#using the StepAIC forward and backwards to find the best model
+#using the StepAIC forward and bac kwards to find the best model
 fit_select = lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 step = stepAIC(fit_select, direction = "both")
 step$anova
+
+#Using AIC to reduce the number of predictor variables 
+chosen_model = lm(MEDV ~ CRIME + CHR_V + NOX + ROOM + AGE + DIS + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+
+#AIC for chosen model
+SSRes_1 = sum(chosen_model$residuals^2)
+n_1 <- 354
+p_prime_1 <-length(chosen_model$coefficients)
+AIC_1 <- n_1*log(SSRes_1) - n_1*log(n_1) + 2*p_prime_1
+AIC_1
+#Using AIC to reduce the number of predictor variables 
+
+#AIC for reduced model
+reduced_model = lm(MEDV ~ CRIME + CHR_V + ROOM + AGE + DIS + PT_RATIO + B, data=mod_housing)
+SSRes = sum(reduced_model$residuals^2)
+n <- 354
+p_prime <-length(reduced_model$coefficients)
+AIC <- n*log(SSRes) - n*log(n) + 2*p_prime
+AIC
+
+
+
+
 
 #ploting out the table 
 #plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
 #abline(0,0)
   
-qqPlot(fit1)
+#qqPlot(fit1)
 
 #model validation
 #validate_housing <-housing[356:506,c(1:14)]
@@ -153,7 +176,7 @@ qqPlot(fit1)
 #MSPE
 
 #outliers 
-outlierTest(fit_select)
+#outlierTest(fit_select)
 
 #Outliers for Y
 #s <- summary(fit_select)
