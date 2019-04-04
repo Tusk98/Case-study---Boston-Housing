@@ -171,17 +171,17 @@ round(t,2)
 "Below is the T crit value: "
 t_crit
 which(abs(t) > t_crit)
-
+  
 #model validation
 "Model Validation"
-validate_housing <-housing[,c("CRIME", "CHR_V", "ROOM", "AGE", "DIS", "PT_RATIO", "B")]
+validate_housing <-housing[,c("CRIME", "CHR_V", "NOX", "ROOM" , "AGE" , "DIS", "TAX", "PT_RATIO","B","L_PER")]
 
 
-Y_pred <- predict(fit_select, validate_housing)
+Y_pred <- predict(fit1, validate_housing)
 Y_obs <- housing["MEDV"]
 n_star <- nrow(housing)
 MSPE <- sum((Y_obs-Y_pred)^2/n_star)
-MS_res <-(summary(fit_select)$sigma^2)
+MS_res <-(summary(fit1)$sigma^2)
 MS_res
 MSPE
 
