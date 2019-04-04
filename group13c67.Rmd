@@ -130,14 +130,16 @@ mod_housing <- housing[1:354,c(1:14)]
 #fit the model with the best observations 
 fit1 <- lm(MEDV ~ CRIME + CHR_V + ROOM + AGE + DIS + PT_RATIO + B, data=mod_housing)
 summary(fit1) 
+```
 
+```{r, echo=FALSE, include = FALSE}
 #using the StepAIC forward and bac kwards to find the best model
 fit_select = lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, data=mod_housing)
 step = stepAIC(fit_select, direction = "both")
 step$anova
 
 #Using AIC to reduce the number of predictor variables 
-chosen_model = lm(MEDV ~ CRIME + CHR_V + NOX + ROOM + AGE + DIS + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+chosen_model = lm(MEDV ~ CRIME + CHR_V + ROOM + AGE + DIS + PT_RATIO + B, data=mod_housing)
 
 #AIC for chosen model
 SSRes_1 = sum(chosen_model$residuals^2)
@@ -156,6 +158,10 @@ AIC <- n*log(SSRes) - n*log(n) + 2*p_prime
 AIC
 
 
+
+```
+
+```{r, echo=FALSE}
 # Studentized deleted residuals
 "So from our outlier Test with t-crit value of 3.925756, we see that only outlying data point is 162."
 outlierTest(fit_select)
@@ -186,10 +192,10 @@ MS_res
 MSPE
 
 #ploting out the table 
-#plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
-#abline(0,0)
+plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
+abline(0,0)
   
-#qqPlot(fit1)
+qqPlot(fit1)
 
 #model validation
 #validate_housing <-housing[356:506,c(1:14)]
