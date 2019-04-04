@@ -233,7 +233,13 @@ qqPlot(fit1)
 
 ```
 
+#Conclusions
+The goal of this case study is find an develop a model based on the dataset provided, that can predict Boston Housing prices so that prospective home buyers can look for an optimal time to purchase property. Our final model is MEDV ~ .... (WRITE OUT THE MODEL), which eliminates many variables with high collinearity, providing us with the lowest AIC alongside retaining a high r^2 value with the original model. 
+
+This model does have limitations, it has a small sample size as it only contains 506 records. For reference in the month of November 2017 alone, there were 2,429 single-family homes listed on the market. (Woods, E.) The model also lacks other predictor variables that affect the price of a home, such as property taxes, management fees, mortgage rates , hydro and electrical costs, access to public transit to name a few. The data also does not separate houses of different types, as the there is a price jump from Condos to Houses despite both having the same number of bedrooms. A possible area of future study may be expanding the sample size or focusing on a single property type to obtain a more accurate prediction model. 
+
 #Citations 
 Bluestone, B. & Huessy, J. (2017). The Greater Boston Housing Report Card 2017 Ideas from the Urban Core - Responsive Development - as a Model for Regional Growth, 68
 
+Woods, E. (2018). Greater Boston saw record median home prices in November <http://realestate.boston.com/buying/2018/12/28/greater-boston-record-november-home-sale-prices/>
 
