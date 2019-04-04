@@ -128,7 +128,7 @@ The R code shown below displays the step forward and backwards process as well a
 #Take the first 354 observations for our model  
 mod_housing <- housing[1:354,c(1:14)]
 #fit the model with the best observations 
-fit1 <- lm(MEDV ~ CRIME + CHR_V + NOX + ROOM + AGE + DIS + TAX + PT_RATIO + B + L_PER, data=mod_housing)
+fit1 <- lm(MEDV ~ CRIME + CHR_V + ROOM + AGE + DIS + PT_RATIO + B, data=mod_housing)
 summary(fit1) 
 
 #using the StepAIC forward and bac kwards to find the best model
@@ -174,7 +174,7 @@ which(abs(t) > t_crit)
   
 #model validation
 "Model Validation"
-validate_housing <-housing[,c("CRIME", "CHR_V", "NOX", "ROOM" , "AGE" , "DIS", "TAX", "PT_RATIO","B","L_PER")]
+validate_housing <-housing[,c("CRIME", "CHR_V", "ROOM" , "AGE" , "DIS", "PT_RATIO","B")]
 
 
 Y_pred <- predict(fit1, validate_housing)
