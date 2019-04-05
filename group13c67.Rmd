@@ -178,7 +178,6 @@ which(abs(t) > t_crit)
 "Model Validation"
 validate_housing <-housing[,c("CRIME", "CHR_V", "ROOM" , "AGE" , "DIS", "PT_RATIO","B")]
 
-
 Y_pred <- predict(fit1, validate_housing)
 Y_obs <- housing["MEDV"]
 n_star <- nrow(housing)
@@ -187,11 +186,25 @@ MS_res <-(summary(fit1)$sigma^2)
 MS_res
 MSPE
 
-#ploting out the table 
-plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Graph Title")
+
+# Data variables declaration for graphs
+sixModel <- lm(MEDV ~ CRIME + CHR_V + ROOM + AGE + PT_RATIO + B, data=mod_housing)
+six <- housing[,c("CRIME", "CHR_V", "ROOM" , "AGE" , "PT_RATIO","B")]
+
+# Residual vs Y graph
+medvCut <- housing[1:354,c("MEDV")]
+plot(sixModel$residuals~medvCut, ylab="Residuals", xlab="MEDV", main="Residual vs Y")
+
+# Residual vs ROOM variable graph
+roomCut <- housing[1:354,c("ROOM")]
+plot(sixModel$residuals~roomCut, ylab="Residuals", xlab="ROOM", main="Residual vs ROOM variable")
+
+#Residuals Vs Fitted Values
+plot(fit1$residuals~fit1$fitted.values, ylab = "Residuals", xlab = "Fitted Values", main = "Residuals vs Fitted Values")
 abline(0,0)
-  
-qqPlot(fit1)
+
+#QQ plot
+qqPlot(fit1, main="Q-Q Plot")
 
 #model validation
 #validate_housing <-housing[356:506,c(1:14)]
@@ -228,6 +241,21 @@ qqPlot(fit1)
 #Influential Observations
 
 ```
+
+#VIF
+```{r, echo=FALSE}
+#VIF 
+vif(sixModel)
+```
+
+#DFBetas
+```{r, echo=FALSE}
+DFBETAS <- dfbetas(sixModel)
+head(DFBETAS)
+which(DFBETAS > 1)
+```
+
+
 
 #Conclusions
 The goal of this case study was to find and develop a model based on the dataset provided that can predict Boston housing prices so that prospective home buyers can look for an optimal time to purchase property. Our final model is MEDV ~ .... (WRITE OUT THE MODEL), which eliminates many variables with high collinearity, providing us with the lowest AIC alongside retaining a high r^2 value with the original model. 
