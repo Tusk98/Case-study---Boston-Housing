@@ -219,11 +219,6 @@ qqPlot(fit1, main="Q-Q Plot")
 #outliers 
 #outlierTest(fit_select)
 
-#Outliers for Y
-#s <- summary(fit_select)
-#n <- nrow(surgic_mod)
-
-#round(rbind(select_criteria(lm(MEDV ~ CRIME + ZL + NR_PROP + CHR_V + NOX + ROOM + AGE + DIS + HWY + TAX + PT_RATIO + B + L_PER, #data=mod_housing), n, s))
 
 
 #t <- rstudent(fit_select)
