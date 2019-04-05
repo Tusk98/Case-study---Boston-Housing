@@ -4,7 +4,7 @@ date: "March 20 2019"
 author: 
 - Revon Villava-Rayen (1002987501)
 - Sizhe Gao ()
-- Alexander Nguyen ()
+- Alexander Nguyen (1001522257)
 - Gopi Santhiran (1001371534)
 - Yu Heng Wu (1003475330)
 - Group 13 
@@ -31,22 +31,18 @@ colnames(housing) <- c('CRIME', 'ZL', 'NR_PROP', 'CHR_V', 'NOX', 'ROOM', 'AGE', 
 ```
 
 #Abstract
-The housing market of the city of Boston is a volatile market, as with any world reknowned city. There are many attempts to create a formula to predict housing prices; using predictor variables such as per capita crime rate by town, or average number of rooms per dwelling. Using R statistical analysis, this study aims to examine and determine which model best represents the correlation between housing prices and these influential factors.
-
-
+Being able to predict housing values is a great boon for home buyers, sellers, and investors alike. However, there are many factors that go into a house's value. Using R statistical analysis, this study aims to examine and determine which model best represents the correlation between housing prices and these influential factors.
 
 #Background and Significance
-Boston is the captial and largest city in Massachusetts. Founded in 1630 Boston is one of the oldest cities in America and the city played an important role in American History. As Boston is a world reknowned city, the housing market in Boston is expensive, with finding and owning property is an important financial goal for many that live within or near Boston.
-
-As Boston currently faces a "growing housing challenge ... likely because younger residents are marrying later ... many of them are overloaded with college debt" (Bluestone). It is clear that buying a House is an expensive financial burden that less and less people are able to afford. Especially when a house must be able to fit the needs of the buyer as a living space. 
-
-We propose this model with the given predictor variables to accurately predict housing values within Boston. By being able to purchase a house at an optimal time, it minimizes the financial burden of the purchase and also allows you to maximize any capital gains that may result from the changing value of the purchased house. Through this process, it is possible to maximize the value of your purchase and minimize the cost of buying a house which leads to more people being able to afford housing in the city of Boston. 
+Whether you are a student, someone dipping into the housing market or otherwise, the purchase or selling of a house is a massive financial burden. Will the house you're selling be at its top value? Will the house you're buying be at a low enough discount? Particularly in Boston, which currently faces a "growing housing challenge" (Bluestone, 2018), to be able to predict housing values is a great boon.
+As such we propose the following regression model to predict housing values in Boston, given 506 observations over 13 predictor variables.
+ 
 
 #Exploratory Data Analysis
 This Data set contains 506 observations on 13 predictors variables, which are per capita crime rate by town, proportion of residential land zoned for lots over 25,000 sq. ft., proportion of non-retail business acres per town
 Charles River dummy variable, nitric oxide concentration (parts per 10 million), average number of rooms per dwelling
 proportion of owner occupied units built prior to 1940, weighted distances to five Boston employment centres
-index of accessibility to radial highways, full-value property-tax rate per 10,000, pupil-teacher ratio by town, 1000(B − 0.63)^2 where B is the proportion of African Americans by town, a numeric vector of percentage values of lower status population.
+index of accessibility to radial highways, full-value property-tax rate per 10,000, pupil-teacher ratio by town, 1000(B - 0.63)^2 where B is the proportion of African Americans by town, a numeric vector of percentage values of lower status population.
 
 Because of the rather long names, we will assign shorter names in capitals listed below: 
 
@@ -234,12 +230,16 @@ qqPlot(fit1)
 ```
 
 #Conclusions
-The goal of this case study is find an develop a model based on the dataset provided, that can predict Boston Housing prices so that prospective home buyers can look for an optimal time to purchase property. Our final model is MEDV ~ .... (WRITE OUT THE MODEL), which eliminates many variables with high collinearity, providing us with the lowest AIC alongside retaining a high r^2 value with the original model. 
+The goal of this case study was to find and develop a model based on the dataset provided that can predict Boston housing prices so that prospective home buyers can look for an optimal time to purchase property. Our final model is MEDV ~ .... (WRITE OUT THE MODEL), which eliminates many variables with high collinearity, providing us with the lowest AIC alongside retaining a high r^2 value with the original model. 
 
-This model does have limitations, it has a small sample size as it only contains 506 records. For reference in the month of November 2017 alone, there were 2,429 single-family homes listed on the market. (Woods, E.) The model also lacks other predictor variables that affect the price of a home, such as property taxes, management fees, mortgage rates , hydro and electrical costs, access to public transit to name a few. The data also does not separate houses of different types, as the there is a price jump from Condos to Houses despite both having the same number of bedrooms. A possible area of future study may be expanding the sample size or focusing on a single property type to obtain a more accurate prediction model. 
+This model does have limitations, it has a small sample size as it only contains 506 records. For reference in the month of November 2017 alone, there were 2,429 single-family homes listed on the market (Woods, E.). The model also lacks other predictor variables that affect the price of a home, such as property taxes, management fees, mortgage rates, hydro and electrical costs, access to public transit to name a few. The data also does not separate houses of different types, as the there is a price jump from Condos to Houses despite both having the same number of bedrooms. A possible area of future study may be expanding the sample size or focusing on a single property type to obtain a more accurate prediction model.
 
 #Citations 
 Bluestone, B. & Huessy, J. (2017). The Greater Boston Housing Report Card 2017 Ideas from the Urban Core - Responsive Development - as a Model for Regional Growth, 68
+
+National Library of Medicine. (2017). Nitrogen Oxides: Your Environment, Your Health | National Library of Medicine. Retrieved from https://toxtown.nlm.nih.gov/chemicals-and-contaminants/nitrogen-oxides
+
+UNESCO. (2018). Pupil-teacher ratio (PTR). Retrived from http://uis.unesco.org/node/334770
 
 Woods, E. (2018). Greater Boston saw record median home prices in November <http://realestate.boston.com/buying/2018/12/28/greater-boston-record-november-home-sale-prices/>
 
