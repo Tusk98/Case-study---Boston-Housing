@@ -113,7 +113,7 @@ This predictor is the percentage of lower status population in each observation.
 #Model 
 
 #Co-Lineartiy 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include= FALSE}
 res = cor(housing)
 round(res,3)
 ```
